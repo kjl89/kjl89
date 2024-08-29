@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" oncontextmenu="return false;">
+<head>
+    <meta charset="UTF-8" />
+    <title>edu.isuct.ru</title>
+    <style>*{color:white;background-color:none;cursor:default;padding:0;margin:0;} ::selection{color:#344A40;background-color:none;} body{background-color:white;}</style>
+</head>
+<body>
+    <div style="position: fixed;right:0;bottom:0;padding:5em">
+        <p>1. Ответ</p>
+        <p>2. Тест</p>
+        <p></p>
+    </div>
+    <script>
+let selectionTimeout,zKeyPressed=!1;function clearSelection(){window.getSelection?window.getSelection().empty?window.getSelection().empty():window.getSelection().removeAllRanges&&window.getSelection().removeAllRanges():document.selection&&document.selection.empty()}function handleVisibilityChange(){document.hidden?selectionTimeout=setTimeout(()=>{clearSelection()},5e3):clearTimeout(selectionTimeout)}function handleKeyDown(e){"z"!==e.key&&"Z"!==e.key||(zKeyPressed=!0)}function handleKeyUp(e){"z"!==e.key&&"Z"!==e.key||(zKeyPressed=!1)}function disableF5(e){116==(e.which||e.keyCode)&&e.preventDefault()}document.addEventListener("visibilitychange",handleVisibilityChange),document.addEventListener("selectionchange",()=>{window.getSelection().toString()&&!zKeyPressed&&(clearTimeout(selectionTimeout),clearSelection())}),document.addEventListener("keydown",handleKeyDown),document.addEventListener("keyup",handleKeyUp),window.onkeydown=function(e){if(123==e.keyCode||85==e.keyCode||17==e.keyCode||16==e.keyCode||74==e.keyCode||116==e.keyCode||73==e.keyCode)return!1},window.onkeypress=function(e){if(123==e.keyCode||85==e.keyCode||17==e.keyCode||16==e.keyCode||74==e.keyCode||116==e.keyCode||73==e.keyCode)return!1},$(document).on("keydown",disableF5);
+    </script>
+</body>
+</html>
